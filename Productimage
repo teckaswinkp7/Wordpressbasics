@@ -1,0 +1,20 @@
+ 
+if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
+/**
+* Get the product thumbnail, or the placeholder if not set.
+*
+* @subpackage Loop
+* @param string $size (default: 'shop_catalog')
+* @param int $deprecated1 Deprecated since WooCommerce 2.0 (default: 0)
+* @param int $deprecated2 Deprecated since WooCommerce 2.0 (default: 0)
+* @return string
+*/
+function woocommerce_get_product_thumbnail( $size = 'shop_catalog', $deprecated1 = 0, $deprecated2 = 0 ) {
+global $post;
+if ( has_post_thumbnail() ) {
+return '<a href="' . get_permalink( $post->ID ) . '">' . get_the_post_thumbnail( $post->ID, $size ) . '</a>';
+} elseif ( wc_placeholder_img_src() ) {
+return wc_placeholder_img( $size );
+}
+}
+}
