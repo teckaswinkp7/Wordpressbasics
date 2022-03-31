@@ -1,0 +1,25 @@
+add_action('user_register', 'my_on_user_register');
+function my_on_user_register($user_id){
+
+    $args = array(
+        'length'    => 4,
+        'before'    => 'AL-5'
+    );
+    $random_number = my_random_string($args);
+    update_user_meta($user_id, 'random_number', $random_number);
+}
+add_action('show_user_profile', 'my_extra_user_profile_fields');
+add_action('edit_user_profile', 'my_extra_user_profile_fields');
+function my_extra_user_profile_fields($user){
+    
+    $random_number = get_the_author_meta('random_number', $user->ID);
+?>
+    
+    <table class="form-table">
+        <tr>
+            <th><label for="address"><?php _e('Partner ID'); ?></label></th>
+            <td><?php echo $random_number; ?></td>
+        </tr>
+    </table>
+<?php
+}
