@@ -1,0 +1,16 @@
+add_filter( 'woocommerce_cart_item_name', 'ywp_product_image_on_checkout', 10, 3 );
+function ywp_product_image_on_checkout( $name, $cart_item, $cart_item_key ) {
+     
+    if ( ! is_checkout() )
+        return $name;
+
+    $_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+ 
+    $thumbnail = $_product->get_image();
+ 
+    $image = '<div class="ywp-product-image" style="width: 52px; height: 45px; display: inline-block; padding-right: 7px; vertical-align: middle;">'
+                . $thumbnail .
+            '</div>'; 
+
+    return $image . $name;
+}
