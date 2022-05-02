@@ -1,0 +1,13 @@
+// Add back to store button on WooCommerce cart page
+add_action('woocommerce_cart_coupon', 'amano_back_to_store');
+add_action('woocommerce_checkout_before_customer_details', 'amano_back_to_store');
+
+add_action( 'woocommerce_after_cart_totals', 'tl_continue_shopping_button' );
+
+function amano_back_to_store() {
+ $shop_page_url = 'https://amanoflorals.com.au/our-shop/';
+ 
+ echo '<div class="">';
+ echo ' <a href="'.$shop_page_url.'" class="button">Continue Shopping →</a>';
+ echo '</div>';
+}
