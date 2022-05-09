@@ -1,0 +1,23 @@
+Checkout Action Hooks
+Action hooks can be used to add or remove elements from the checkout page.
+
+There are 9 action hooks on the checkout page:
+
+woocommerce_before_checkout_form
+woocommerce_checkout_before_customer_details
+woocommerce_checkout_billing
+woocommerce_checkout_shipping
+woocommerce_checkout_after_customer_details
+woocommerce_checkout_before_order_review
+woocommerce_checkout_order_review
+woocommerce_checkout_after_order_review
+woocommerce_after_checkout_form
+There are also 7 additional hooks that may be available, depending on your layout:
+
+woocommerce_checkout_before_terms_and_conditions
+woocommerce_checkout_after_terms_and_conditions
+woocommerce_before_checkout_billing_form
+woocommerce_before_checkout_registration_form
+woocommerce_after_checkout_registration_form
+woocommerce_before_checkout_shipping_form
+woocommerce_after_checkout_shipping_form
