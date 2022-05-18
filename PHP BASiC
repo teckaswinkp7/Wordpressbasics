@@ -1,0 +1,4 @@
+
+print count(array_filter(str_split($datas),'is_numeric'));
+
+array_sum(str_split($number));
